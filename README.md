@@ -1,3 +1,24 @@
+# Demo
+
+- album table
+  - id bigint
+  - name varchar
+- photo table
+  - id bigint
+  - uuid
+- album_photo
+  - id bigint
+  - album_id
+  - photo_id
+- api
+  - create album
+  - upload photo to album
+  - get all album
+  - get album photos
+  - edit album name
+  - delete photo
+  - delete album
+
 # ttn
 
 1. 建 EC2 設定固定 ip
