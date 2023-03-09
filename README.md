@@ -12,59 +12,40 @@
 1. 設定 auto scaling 最少兩台，確定兩台都會有流量
 1. 測試只剩一台壞掉也不影響 api ，且會再自動開啟第二台
 
-# JCC
+# AWS 伺服器規格
 
-```json
-{
-  "scripts": {
-    "knex": "dotenv  -e .env  knex",
-    "migrate": "knex migrate:latest",
-    "seed": "knex seed:run",
-    "dev": "nodemon  --require dotenv/config  server.js",
-    "start": "node server.js",
-    "lint": "eslint ./*.js",
-    "generate:doc": "p2o  --file docs/openapi.yml  --options docs/p2o-options.json",
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "repository": {
-    "type": "git"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "dependencies": {
-    "@koa/cors": "^4.0.0",
-    "@line/bot-sdk": "^7.5.2",
-    "@sendgrid/mail": "^7.7.0",
-    "axios": "^1.2.2",
-    "bcrypt": "^5.1.0",
-    "cron": "^2.2.0",
-    "dayjs": "^1.11.7",
-    "form-data": "^4.0.0",
-    "generate-sms-verification-code": "^1.0.5",
-    "jsonwebtoken": "^9.0.0",
-    "knex": "^2.3.0",
-    "koa": "^2.13.4",
-    "koa-body": "^6.0.1",
-    "koa-joi-router": "^8.0.0",
-    "koa-mount": "^4.0.0",
-    "koa-router": "^12.0.0",
-    "koa-static": "^5.0.0",
-    "koa2-swagger-ui": "^5.6.0",
-    "mailgun.js": "^8.0.6",
-    "mysql2": "^2.3.3",
-    "node-xlsx": "^0.21.0",
-    "objection": "^3.0.1",
-    "resources.js": "^1.3.0",
-    "time-js": "^0.0.5",
-    "yamljs": "^0.3.0"
-  },
-  "devDependencies": {
-    "dotenv": "^16.0.3",
-    "dotenv-cli": "^6.0.0",
-    "eslint": "^8.29.0",
-    "nodemon": "^2.0.20",
-    "postman-to-openapi": "^3.0.0"
-  }
-}
-```
+## AWS EC2
+
+- 用途：後端主機
+- 規格： t2.micro
+- 數量：1
+
+## AWS RDS
+
+- 用途：資料庫
+- 規格： db.t4g.micro
+- 數量：1
+
+## AWS Elastic Load Balancer
+
+- 用途：負載平衡器
+- 規格：Application Load Balancer
+- 數量：1
+
+## AWS S3
+
+- 用途：前端主機、照片儲存空間
+- 規格：S3 Standard
+
+## AWS Route 53
+
+- 用途：網域管理及管理託管區域
+
+## AWS CloudWatch
+
+- 用途： log 儲存及查詢
+
+## AWS CloudFront
+
+- 用途：CDN 及轉導至前、後端主機
+- 數量：2
