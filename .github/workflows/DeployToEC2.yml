@@ -11,7 +11,7 @@ jobs:
 
     steps:
       - name: Checkout Code
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
 
       - name: Install Dependencies
         run: npm install
@@ -20,7 +20,7 @@ jobs:
         uses: easingthemes/ssh-deploy@main
         env:
           SSH_PRIVATE_KEY: ${{ secrets.EC2_SSH_KEY }}
-          ARGS: '-rlgoDzvc -i'
+          ARGS: '-rlgoDzvc -i --delete'
           SOURCE: './'
           REMOTE_HOST: ${{ secrets.EC2_HOST_DNS }}
           REMOTE_USER: ${{ secrets.USERNAME }}
