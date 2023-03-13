@@ -1,30 +1,10 @@
 const koa = require('koa')
 const { Model } = require('objection')
+const config = require('../knexfile')
 const app = new koa()
 
-//
-const Local_Config = {
-  client: 'mysql2',
-  connection: {
-    host: 'localhost',
-    port: 3306,
-    user: 'root',
-    password: process.env.LOCAL_DATABASE_PASSWORD, // change password: ALTER USER 'root'@'localhost' IDENTIFIED BY 'NewPassword';
-    database: 'koa', // SHOW DATABASES;
-  },
-}
-const RDS_Config = {
-  client: 'mysql2',
-  connection: {
-    host: process.env.RDS_HOST,
-    user: process.env.RDS_USERNAME,
-    password: process.env.RDS_PASSWORD,
-    database: process.env.RDS_DATABASE,
-  },
-}
-
-const isLocal = !!process.env.IS_LOCAL
-const knex = require('knex')(isLocal ? Local_Config : RDS_Config)
+const env = process.env.NODE_ENV || 'development'
+const knex = require('knex')(config[env])
 
 Model.knex(knex)
 
