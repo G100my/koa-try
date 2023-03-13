@@ -10,7 +10,6 @@ module.exports = {
       host: 'localhost',
       port: 3306,
       user: 'root',
-      password: process.env.LOCAL_DATABASE_PASSWORD, // change password: ALTER USER 'root'@'localhost' IDENTIFIED BY 'NewPassword';
       database: 'koa', // SHOW DATABASES;
     },
   },
