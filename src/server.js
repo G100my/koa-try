@@ -1,3 +1,4 @@
+require('dotenv').config()
 const koa = require('koa')
 const { Model } = require('objection')
 const config = require('../knexfile')
