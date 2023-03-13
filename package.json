@@ -11,5 +11,8 @@
     "mysql2": "^2.3.3",
     "objection": "^3.0.1",
     "resources.js": "^1.3.0"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.21"
   }
 }
