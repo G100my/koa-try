@@ -1,9 +1,9 @@
 const { Model } = require('objection')
 
-class album_photo extends Model {
+class Album_Photo extends Model {
   static get tableName() {
-    return 'album_photo'
+    return 'Album_Photo'
   }
 }
 
-module.exports = album_photo
+module.exports = Album_Photo
