@@ -11,13 +11,13 @@
   - album_id
   - photo_id
 - api
-  - create album
-  - upload photo to album
-  - get all album
-  - get album photos
-  - edit album name
-  - delete photo
-  - delete album
+  - [x] create album
+  - [ ] upload photo to album
+  - [x] get all album
+  - [ ] get album photos
+  - [x] edit album name
+  - [ ] delete photo
+  - [x] delete album
 
 # ttn
 
